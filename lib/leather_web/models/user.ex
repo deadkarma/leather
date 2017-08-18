@@ -9,7 +9,10 @@ defmodule Leather.User do
     field :password_hash, :string
     field :username, :string
     timestamps()
+
+    has_many(:accounts, Leather.Account)
   end
+
   def changeset(model, params \\ :invalid) do
     model
     |> cast(params, ~w(username))
